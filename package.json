@@ -1,9 +1,17 @@
 {
-  "name": "myapp",
-  "description": "a really cool app",
+  "name": "Jesse's Web App Site",
   "version": "1.0.0",
+  "description": "Hosting for my future web applications",
+  "main": "index.js",
+  "scripts": {
+  		"test": "echo \"Error: no test specified\" && exit 1",
+  		"start": "node index.js"
+  },
+  "dependencies": {
+  	"express": "^4.17.1"
+  },
   "engines": {
-		"node": ">= 6.0.0",
-    	"npm": ">= 3.0.0"
+		"node": ">= 15.0.1",
+    	"npm": ">= 7.0.7"
   }
 }

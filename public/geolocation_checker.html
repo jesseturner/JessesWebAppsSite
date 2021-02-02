@@ -48,7 +48,7 @@
 										},
 										body: JSON.stringify(data)
 										};
-									const response = await fetch('/api', options);
+									const response = await fetch('/locations', options);
 									const json = await response.json();
 									console.log(json);
 								})
@@ -61,22 +61,6 @@
 							latitude: <span id="latitude"></span>&deg;<br />
 							longitude: <span id="longitude"></span>&deg;
 						</p>
-
-						<!-- Content -->
-							<section>
-								<form name="send">
-									<div class="fields">
-										<div class="field">
-											<label for="message">Message</label>
-											<input type="text" name="message" id="message">
-										</div>
-										<input type="button" value="Send" id="send_button" />
-										
-										<div>
-											<input type="button" value="Get Data" id="get_button" />
-										</div>
-								</form>
-							</section>
 					
 					</div>
 

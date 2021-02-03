@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const Datastore = require('nedb');
+var natural = require('natural');
 
 const port = process.env.PORT || 3000; //3000 if locally
 app.listen(port, () => {
@@ -23,8 +24,6 @@ app.use(express.json({ limit: '1mb' }));
 		response.json(data);
 		console.log('Post');
 	});
-
-	//Run classifier
 
 	//Send data to client side
 	app.get('/api', (request, response) => {
@@ -67,3 +66,17 @@ app.use(express.json({ limit: '1mb' }));
 	response.json(data);
 	console.log('Location logged.');
 	});
+
+//Sentiment classifier
+	app.post('/sentiment', (request, response) => {
+		const data = request.body;
+		natural.BayesClassifier.load('nvclassifier.json',null,function(err,classifier){
+			console.log(data);
+			result = classifier.classify(data.message);
+			console.log(result);
+		});
+	response.send(result); 
+	//response.json(data);
+	});
+
+

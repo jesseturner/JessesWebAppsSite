@@ -33,16 +33,17 @@
 						<!-- Content -->
 							<section>
 								<form name="send">
+
 									<div class="fields">
 										<div class="field">
 											<label for="message">Message</label>
 											<input type="text" name="message" id="message">
 										</div>
-										<input type="button" value="Send" id="send_button" />
-										
-										<div>
-											<input type="button" value="Get Data" id="get_button" />
-										</div>
+										<input type="button" value="Evaluate" id="send_button" />
+									</div>
+
+									<div class="field" id="result">
+									</div>
 								</form>
 							</section>
 					
@@ -50,8 +51,7 @@
 
 
 		<!-- Scripts -->
-			<script src="get.js"></script>
-			<script src="sentiment_post.js"></script>
+			<script src="post_sentiment.js"></script>
 
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>

@@ -65,5 +65,5 @@ app.use(express.json({ limit: '1mb' }));
 	data.timestamp = timestamp;
 	locations.insert(data);
 	response.json(data);
-	console.log('Post');
+	console.log('Location logged.');
 	});

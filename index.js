@@ -68,15 +68,31 @@ app.use(express.json({ limit: '1mb' }));
 	});
 
 //Sentiment classifier
+	const sentimentdb = new Datastore('sentiment.db');
+	sentimentdb.loadDatabase();
+
 	app.post('/sentiment', (request, response) => {
 		const data = request.body;
 		natural.BayesClassifier.load('nvclassifier.json',null,function(err,classifier){
 			console.log(data);
-			result = classifier.classify(data.message);
+			message = data.message;
+			const result = classifier.classify(message);
 			console.log(result);
+			sentimentdb.insert({ message, result });
+		response.json(data); //not actually sending anything
 		});
-	response.send(result); 
-	//response.json(data);
+	});
+
+	app.get('/sentiment', (request, response) => {
+		sentimentdb.find({}, (err, data) => {
+			if (err) {
+				response.end();
+				console.log('GET sentiment error.')
+				return;
+			}
+			response.json(data);
+		});
+		console.log('GET sentiment success.');
 	});
 
 

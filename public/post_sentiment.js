@@ -15,5 +15,4 @@ button.onclick = async function sendMessage() {
 	    const json = await response; 
 	    console.log(json);
 	
-	GetResult();//Error here
-	};
+	//GetResult();//Error - Get result is not defined

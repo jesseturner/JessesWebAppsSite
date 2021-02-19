@@ -83,16 +83,26 @@ app.use(express.json({ limit: '1mb' }));
 		});
 	});
 
-	app.get('/sentiment', (request, response) => {
-		sentimentdb.find({}, (err, data) => {
+	app.get('/sentiment/:id', (request, response) => {
+		id = request.params.id;
+		console.log('Get sentiment with Id: ' + id);
+		sentimentdb.find({ _id: id}, function(err, docs) {
+	    if (err) {
+	    	response.end();
+	    	console.log('Find error in sentimentdb');
+	    }
+	    response.json(docs);
+	    console.log(docs);
+		});
+
+			/*sentimentdb.find({}, (err, data) => {
 			if (err) {
 				response.end();
-				console.log('GET sentiment error.')
 				return;
 			}
 			response.json(data);
+			});*/
 		});
-		console.log('GET sentiment success.');
-	});
+		
 
 

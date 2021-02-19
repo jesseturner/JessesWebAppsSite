@@ -12,7 +12,9 @@ button.onclick = async function sendMessage() {
 	    };
 	    
 	    const response = await fetch('/sentiment', options); 
-	    const json = await response; 
+	    const json = await response.json();
 	    console.log(json);
 	
-	//GetResult();//Error - Get result is not defined
+	getSentimentResult(json._id);
+	};
+

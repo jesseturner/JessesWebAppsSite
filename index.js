@@ -74,35 +74,31 @@ app.use(express.json({ limit: '1mb' }));
 	app.post('/sentiment', (request, response) => {
 		const data = request.body;
 		natural.BayesClassifier.load('nvclassifier.json',null,function(err,classifier){
-			console.log(data);
 			message = data.message;
 			const result = classifier.classify(message);
-			console.log(result);
-			sentimentdb.insert({ message, result });
-		response.json(data); //not actually sending anything
+		sentimentdb.insert({ message, result }, function(err, newDocs) {
+				if (err) {
+	    			response.end();
+	    			console.log('INSERT error in sentimentdb');
+	    		}
+	    		response.json(newDocs);
+	    		console.log('POST sentiment: ', newDocs);
+				});
 		});
 	});
 
 	app.get('/sentiment/:id', (request, response) => {
 		id = request.params.id;
-		console.log('Get sentiment with Id: ' + id);
+		console.log('GET sentiment with Id: ', id);
 		sentimentdb.find({ _id: id}, function(err, docs) {
 	    if (err) {
 	    	response.end();
-	    	console.log('Find error in sentimentdb');
+	    	console.log('FIND error in sentimentdb');
 	    }
 	    response.json(docs);
-	    console.log(docs);
+	    console.log('GET sentiment: ', docs);
 		});
-
-			/*sentimentdb.find({}, (err, data) => {
-			if (err) {
-				response.end();
-				return;
-			}
-			response.json(data);
-			});*/
-		});
+	});
 		
 
 

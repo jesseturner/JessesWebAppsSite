@@ -1,10 +1,11 @@
-async function getResult()
+async function getSentimentResult(id)
 	{
 		/*fetch('/sentiment/7aKAMTiTn0VN9XQC')
 			.then(response => response.json())
 			.then(data => console.log(data));*/
 
-		const get_response = await fetch('/sentiment/7aKAMTiTn0VN9XQC');
+		const get_response = await fetch('/sentiment/'+id);
+		console.log('Fetching /sentiment/'+id);
 		const data = await get_response.json();
 		console.log(data);
 
@@ -22,4 +23,3 @@ async function getResult()
 			document.getElementById('response').append(root);
 		}
 	};
-window.addEventListener("load", getResult());

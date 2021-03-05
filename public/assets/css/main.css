@@ -4687,3 +4687,32 @@ input, select, textarea {
 		}
 
 	}
+
+/* Additional classes */
+
+	.result_box {
+		font-weight: 900;
+		text-align: center;
+		border: solid 2px;
+		margin-bottom: 2rem;
+		margin-top: 2rem;
+		padding: 1.5rem;
+	}
+	.result_box--positive {
+		font-weight: 900;
+		text-align: center;
+		border: solid 2px;
+		background-color: green;
+		margin-bottom: 2rem;
+		margin-top: 2rem;
+		padding: 1.5rem;
+	}
+	.result_box--negative {
+		font-weight: 900;
+		text-align: center;
+		border: solid 2px;
+		background-color: red;
+		margin-bottom: 2rem;
+		margin-top: 2rem;
+		padding: 1.5rem;
+	}

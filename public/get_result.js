@@ -1,9 +1,5 @@
 async function getSentimentResult(id)
 	{
-		/*fetch('/sentiment/7aKAMTiTn0VN9XQC')
-			.then(response => response.json())
-			.then(data => console.log(data));*/
-
 		const get_response = await fetch('/sentiment/'+id);
 		console.log('Fetching /sentiment/'+id);
 		const data = await get_response.json();
@@ -16,5 +12,11 @@ async function getSentimentResult(id)
 			const root = document.createElement('div');
 			root.append(item.result);
 			document.getElementById('response').append(root);
+		}
+		if (item.result == "positive") {
+			document.getElementById('response').className = 'result_box--positive';
+		}
+		if (item.result == "negative") {
+			document.getElementById('response').className = 'result_box--negative';
 		}
 	};

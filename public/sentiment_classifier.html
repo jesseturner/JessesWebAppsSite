@@ -21,9 +21,7 @@
 					<nav id="nav">
 						<ul class="links">
 							<li><a href="index.html">Jesse's Web Apps Site</a></li>
-							<li><a href="database_query.html">Database Read & Write</a></li>
 							<li class="active"><a href="sentiment_classifier.html">Sentiment Classifier</a></li>
-							<li><a href="geolocation_checker.html">Geolocation Checker</a></li>
 						</ul>
 					</nav>
 
@@ -33,26 +31,18 @@
 						<!-- Content -->
 							<section>
 								<form name="send">
-
 									<div class="fields">
 										<div class="field">
 											<label for="message">Message</label>
 											<input type="text" name="message" id="message">
 										</div>
-										<input type="button" value="Evaluate" id="send_button" />
-									</div>
-
-									<div class="field" id="result">
+										<div class="field">
+											<input type="button" value="Evaluate" id="send_button" />
+											<div id="response"></div>
+										</div>
 									</div>
 								</form>
 							</section>
-
-							<section>
-								<ul>
-									<div class="col-4 col-12-small" id="response"></div>
-								</ul>
-							</section>
-					
 					</div>
 
 

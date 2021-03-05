@@ -14,12 +14,7 @@ async function getSentimentResult(id)
 	//Displaying data on the screen
 		for (item of data) {
 			const root = document.createElement('div');
-			const message = document.createElement('div');
-			message.textContent = 'message: ' + item.message;
-			const result = document.createElement('div');
-			result.textContent = 'result: ' + item.result;
-
-			root.append(message, result);
+			root.append(item.result);
 			document.getElementById('response').append(root);
 		}
 	};

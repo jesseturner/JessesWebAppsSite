@@ -99,6 +99,44 @@ app.use(express.json({ limit: '1mb' }));
 	    console.log('GET sentiment: ', docs);
 		});
 	});
-		
+
+
+	// Postgres Database
+	const {Pool} = require('pg');
+	const pool = new Pool({
+	 connectionString: 'postgres://qtagdirbrgqpeb:789820c70809709bbf4f34ed2e8dcc728ae094f2c9409518b913a53838f860da@ec2-52-44-31-100.compute-1.amazonaws.com:5432/d6ghtj6flrhe3e',
+	 ssl: {
+	 rejectUnauthorized: false
+	 }
+	});
+
+	app.post('/postgres_api', (request, response) => {
+		pool.query(`INSERT INTO Address(FirstName,LastName,Address) Values('Jesse','Turner','1515 Test Address');`, (err, res) => {
+	    if (err) {
+	        console.log("Postgres API Error - Failed to insert data");
+	        console.log(err);
+	    }
+	    else{
+	        console.log("POST postgres success");
+	        response.json(res.rows);
+	    }
+	});
+});
+
+	//Send data to client side
+	app.get('/postgres_api', (request, response) => {
+		pool.query(`SELECT * FROM Address;`, (err, res) => {
+    	if (err) {
+        	console.log("Postgres API Error - Failed to select all from Address");
+        	console.log(err);
+        	response.end();
+			return;
+    	}
+    	else {
+        	console.log("GET postgres success");
+        	response.json(res.rows);
+    	}
+	});
+});
 
 

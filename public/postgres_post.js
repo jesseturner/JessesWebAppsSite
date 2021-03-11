@@ -1,12 +1,14 @@
 var button = document.getElementById("send_button");
-var name = document.getElementById("name");
+var firstname = document.getElementById("firstname");
+var lastname = document.getElementById("lastname");
 var address = document.getElementById("address");
 
 button.onclick = async function sendData() {
 
-	var name = document.send.name.value;
+	var firstname = document.send.firstname.value;
+	var lastname = document.send.lastname.value;
 	var address = document.send.address.value;
-	    const data = { name, address };
+	    const data = { firstname, lastname, address };
 	    const options = {
 	      method: 'POST',
 	      headers: {'Content-Type': 'application/json'},

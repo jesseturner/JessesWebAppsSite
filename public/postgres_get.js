@@ -4,25 +4,27 @@ async function getData()
 		const data = await get_response.json();
 		console.log(data);
 
-		document.getElementById('data').innerHTML = "";
+		var table = document.getElementById('addressTable');
 
-	//Displaying data on the screen
-	/*	for (item of data) {
-			const root = document.createElement('div');
-			const name = document.createElement('div');
-			name.textContent = 'name: ' + item.name;
-			const address = document.createElement('div');
-			address.textContent = 'address: ' + item.address;
-
-			var del_button = document.createElement("input");
-			del_button.type = "reset";
-			del_button.value = "Delete";
-			del_button.id = "delete_spec";
-			del_button.setAttribute("entry-id", item._id);
-
-			root.append(name, address, del_button);
-			document.getElementById('data').append(root);
-		}
-		enable_delete(); */
+		for (var i = 0; i < data.length; i++) {
+			var row = 	`<tr>
+							<td>${data[i].firstname}</td>
+							<td>${data[i].lastname}</td>
+							<td>${data[i].address}</td>
+							<td> <button class="deleteBtn"> Delete </button> </td>
+						</tr>`
+			table.innerHTML += row;
+		};
 	};
 window.addEventListener("load", getData());
+
+		var table = document.getElementById('addressTable');
+
+		function onDeleteRow(e) {
+			if (!e.target.classList.contains("deleteBtn")) {
+				return;
+			}
+			alert(`clicked ID = ???`);
+		}
+
+		table.addEventListener("click", onDeleteRow);

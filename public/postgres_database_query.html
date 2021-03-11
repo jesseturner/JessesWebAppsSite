@@ -22,6 +22,7 @@
 						<ul class="links">
 							<li><a href="index.html">Jesse's Web Apps Site</a></li>
 							<li><a href="sentiment_classifier.html">Sentiment Classifier</a></li>
+							<li class="active"><a href="postgres_database_query.html">Database Query</a></li>
 						</ul>
 					</nav>
 
@@ -54,6 +55,17 @@
 							</section>
 
 							<section>
+								<table>
+									<tr>
+										<th> First Name: </th>
+										<th> Last Name: </th>
+										<th> Address: </th>
+										<th> </th>
+									</tr>
+									<tbody id="addressTable">
+									
+									</tbody>
+								</table>
 								<ul>
 									<div class="col-4 col-12-small" id="data"></div>
 								</ul>
@@ -62,6 +74,8 @@
 
 
 		<!-- Scripts -->
+  			<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 			<script src="postgres_get.js"></script>
 			<script src="postgres_post.js"></script>
 

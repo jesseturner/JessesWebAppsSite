@@ -111,13 +111,15 @@ app.use(express.json({ limit: '1mb' }));
 	});
 
 	app.post('/postgres_api', (request, response) => {
-		pool.query(`INSERT INTO Address(FirstName,LastName,Address) Values('Jesse','Turner','1515 Test Address');`, (err, res) => {
+		const data = request.body.firstname;
+		pool.query(`INSERT INTO Address(FirstName,LastName,Address) 
+			Values('${request.body.firstname}','${request.body.lastname}','${request.body.address}');`, (err, res) => {
 	    if (err) {
 	        console.log("Postgres API Error - Failed to insert data");
 	        console.log(err);
 	    }
 	    else{
-	        console.log("POST postgres success");
+	        console.log("POST success: " + request.body.firstname + " " + request.body.lastname);
 	        response.json(res.rows);
 	    }
 	});

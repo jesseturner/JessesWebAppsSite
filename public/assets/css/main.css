@@ -4716,3 +4716,38 @@ input, select, textarea {
 		margin-top: 2rem;
 		padding: 1.5rem;
 	}
+
+/* "Simple_Posts" based off of "Posts" class */
+
+	#main > .simple_posts > * {
+		padding: 2rem;
+		width: 100%;
+	}
+
+	#main > .simple_posts > article {
+		border-color: #eeeeee;
+		border-style: solid;
+		border-bottom-width: 2px;
+		text-align: center;
+	}
+
+	.simple_flex_container {
+	    display: flex;
+	    align-items: center;
+	    flex-direction: row;
+	}
+
+	.simple_flex_child {
+	    flex: 1;
+	}  
+
+	.simple_flex_child:first-child {
+	    margin-right: 20px;
+	}
+
+	@media screen and (max-width: 736px) {
+		.simple_flex_container {
+			flex-direction: column;
+		}
+	}
+

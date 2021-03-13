@@ -49,6 +49,8 @@
 									<div class="col-12">
 											<ul class="actions">
 												<li><input type="submit" value="Save To Database" class="primary" id="send_button" /></li>
+												<li><input type="submit" value="Delete From Database" id="delete_button" /></li>
+												<input type="text" name="delete_id" id="delete_id" class="short_input">
 											</ul>
 									</div>
 								</form>
@@ -57,10 +59,10 @@
 							<section>
 								<table>
 									<tr>
+										<th> ID: </th>
 										<th> First Name: </th>
 										<th> Last Name: </th>
 										<th> Address: </th>
-										<th> </th>
 									</tr>
 									<tbody id="addressTable">
 									
@@ -78,6 +80,7 @@
 
 			<script src="postgres_get.js"></script>
 			<script src="postgres_post.js"></script>
+			<script src="postgres_delete.js"></script>
 
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>

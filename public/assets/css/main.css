@@ -4751,3 +4751,16 @@ input, select, textarea {
 		}
 	}
 
+/* Used on postgres_database_query */
+/* Width is set to 100% by type="text" */
+
+	.short_input {
+		margin-left: 15px;
+		}
+
+	@media screen and (max-width: 736px) {
+		.short_input {
+			margin-left: 0px;
+			margin-top: 15px;
+		}
+

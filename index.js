@@ -125,7 +125,6 @@ app.use(express.json({ limit: '1mb' }));
 	});
 });
 
-	//Send data to client side
 	app.get('/postgres_api', (request, response) => {
 		pool.query(`SELECT * FROM Address;`, (err, res) => {
     	if (err) {
@@ -141,4 +140,19 @@ app.use(express.json({ limit: '1mb' }));
 	});
 });
 
+	app.post('/postgres_delete', (request, response) => {
+		pool.query(`DELETE FROM Address WHERE id = ${request.body.delete_id}`, (err, res) => {
+			if (err) {
+				console.log("Postgres API Error - Failed to delete from Address");
+        		console.log(err);
+        		response.end();
+				return;
+			}
+			else {
+				console.log("DELETE postgres success");
+				response.json(res.rows);
+			}
+
+		});
+	});
 

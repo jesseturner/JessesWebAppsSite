@@ -219,7 +219,7 @@ app.use(express.json({ limit: '1mb' }));
 			classifier.train();
 			console.log('Training completed.');
 
-			classifier.save('nvclassifier_postgres.json', function(err,classifier){});
+			classifier.save('nvclassifier_postgres.json', function(err,classifier){}); // May need version of this table in postgres
 
 			var raw = JSON.stringify(classifier);
 			console.log(raw);

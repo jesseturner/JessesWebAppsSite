@@ -73,7 +73,7 @@ app.use(express.json({ limit: '1mb' }));
 
 	app.post('/sentiment', (request, response) => {
 		const data = request.body;
-		natural.BayesClassifier.load('nvclassifier.json',null,function(err,classifier){
+		natural.BayesClassifier.load('nvclassifier_postgres.json',null,function(err,classifier){
 			message = data.message;
 			const result = classifier.classify(message);
 		sentimentdb.insert({ message, result }, function(err, newDocs) {
@@ -202,7 +202,7 @@ app.use(express.json({ limit: '1mb' }));
 	app.get('/sentiment_train', (request, response) => {
 
 		var classifier = new natural.BayesClassifier();
-		
+
 		pool.query(`SELECT * FROM Sentiment;`, (err, res) => { //Replace Address with Sentiment
 		if (err) {
 			console.log("Sentiment train - Failed to select all from Sentiment");

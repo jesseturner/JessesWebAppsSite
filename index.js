@@ -142,17 +142,88 @@ app.use(express.json({ limit: '1mb' }));
 
 	app.post('/postgres_delete', (request, response) => {
 		pool.query(`DELETE FROM Address WHERE id = ${request.body.delete_id}`, (err, res) => {
-			if (err) {
-				console.log("Postgres API Error - Failed to delete from Address");
-        		console.log(err);
-        		response.end();
-				return;
-			}
-			else {
-				console.log("DELETE postgres success");
-				response.json(res.rows);
-			}
+		if (err) {
+			console.log("Postgres API Error - Failed to delete from Address");
+    		console.log(err);
+    		response.end();
+			return;
+		}
+		else {
+			console.log("DELETE postgres success");
+			response.json(res.rows);
+		}
 
-		});
+	});
+});
+
+	//Sentiment Table API
+
+	app.post('/sentiment_post', (request, response) => {
+		pool.query(`INSERT INTO Sentiment(text,category) 
+			Values('${request.body.classifiertext}','${request.body.category}');`, (err, res) => {
+	    if (err) {
+	        console.log("Sentiment API Error - Failed to insert data");
+	        console.log(err);
+	    }
+	    else{
+	        console.log("Sentiment POST success: " + request.body.classifiertext + " " + request.body.category);
+	        response.json(res.rows);
+	    }
+	});
+});
+	app.get('/sentiment_get', (request, response) => {
+		pool.query(`SELECT * FROM Sentiment;`, (err, res) => {
+    	if (err) {
+        	console.log("Sentiment API Error - Failed to select all from Sentiment");
+        	console.log(err);
+        	response.end();
+			return;
+    	}
+    	else {
+        	console.log("Sentiment GET success");
+        	response.json(res.rows);
+    	}
+	});
+});
+	app.post('/sentiment_delete', (request, response) => {
+		pool.query(`DELETE FROM Sentiment WHERE id = ${request.body.delete_id}`, (err, res) => {
+		if (err) {
+			console.log("Sentiment API Error - Failed to delete from Sentiment");
+    		console.log(err);
+    		response.end();
+			return;
+		}
+		else {
+			console.log("Sentiment DELETE success");
+			response.json(res.rows);
+		}
+	});
+});
+	app.get('/sentiment_train', (request, response) => {
+
+		var classifier = new natural.BayesClassifier();
+		
+		pool.query(`SELECT * FROM Sentiment;`, (err, res) => { //Replace Address with Sentiment
+		if (err) {
+			console.log("Sentiment train - Failed to select all from Sentiment");
+			console.log(err);
+			return;
+		}
+		else {
+			console.log(res.rows); //Returns in JSON format! Just as needed. 
+			const data = res.rows;
+
+			data.forEach(item=>{
+			classifier.addDocument(item.text, item.category);
+			})
+			classifier.train();
+			console.log('Training completed.');
+
+			classifier.save('nvclassifier_postgres.json', function(err,classifier){});
+
+			var raw = JSON.stringify(classifier);
+			console.log(raw);
+			}
+		}); 
 	});
 

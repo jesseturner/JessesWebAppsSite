@@ -13,8 +13,8 @@ const pool = new Pool({
 //Command-Line Postgres SQL is not yet set up
 
 // Create new table
-/*
-pool.query(`CREATE TABLE Address(id SERIAL PRIMARY KEY, FirstName VARCHAR, LastName VARCHAR, Address VARCHAR);`, (err, res) => {
+
+pool.query(`CREATE TABLE Sentiment(id SERIAL PRIMARY KEY, text VARCHAR, category VARCHAR);`, (err, res) => {
     if (err) {
         console.log("Error - failed to create table");
         console.log(err);
@@ -23,10 +23,10 @@ pool.query(`CREATE TABLE Address(id SERIAL PRIMARY KEY, FirstName VARCHAR, LastN
         console.log(res.rows);
     }
 });
-*/
+
 
 // Get all data from table
-
+/*
 pool.query(`SELECT * FROM Address;`, (err, res) => {
     if (err) {
         console.log("Error - Failed to select all from Address");
@@ -36,7 +36,7 @@ pool.query(`SELECT * FROM Address;`, (err, res) => {
         console.log(res.rows);
     }
 });
-
+*/
 
 // Add data to table
 /*

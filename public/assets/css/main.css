@@ -4763,4 +4763,10 @@ input, select, textarea {
 			margin-left: 0px;
 			margin-top: 15px;
 		}
+	}
 
+/* Used on the app page descriptions */
+	
+	.description {
+		font-style: italic;
+	}

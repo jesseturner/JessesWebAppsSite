@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "jquery": "^3.6.0",
     "natural": "^2.1.5",
     "nedb": "^1.8.0",
     "pg": "^8.0.2"

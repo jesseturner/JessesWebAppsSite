@@ -18,7 +18,7 @@ postivebutton.onclick = async function sendData() {
 	    const json = await response; 
 	    console.log(json);
 
-	getData();
+	//getData();
 	};
 
 

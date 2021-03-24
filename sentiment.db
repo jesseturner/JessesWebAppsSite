@@ -9,6 +9,7 @@
 {"message":"awesome","result":"positive","_id":"7aKAMTiTn0VN9XQC"}
 {"message":"awesome","result":"positive","_id":"8BkAUMdyeKCbVQVI"}
 {"message":"awesome","result":"positive","_id":"AaV2y6xrN8insT4T"}
+{"message":"you're crazy","result":"positive","_id":"BuFsFxRtf7ajQgpZ"}
 {"message":"well this is terrible","result":"negative","_id":"G1XjotlesjwiIYDH"}
 {"message":"awesome","result":"positive","_id":"J3m3c5UjOCHh1Abb"}
 {"message":"terrible","result":"negative","_id":"JybWaFMFEiHocIrR"}
@@ -55,3 +56,5 @@
 {"message":"terrible","result":"negative","_id":"xiwf3SBhIErIw25Y"}
 {"message":"awesome","result":"positive","_id":"ybzEjsmq7jbG5Iah"}
 {"message":"hello","result":"positive","_id":"zPBVA5Lc7KZoUtXb"}
+{"message":"yall are crazy","result":"negative","_id":"P2qVB3vs4seFi8rH"}
+{"message":"y'all are crazy","result":"positive","_id":"wWSeEJAafMSyHsS4"}

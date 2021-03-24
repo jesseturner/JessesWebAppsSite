@@ -62,15 +62,17 @@
 							</section>
 
 							<section>
-								<table>
-									<tr>
-										<th> ID: </th>
-										<th> Text: </th>
-										<th> Category: </th>
-									</tr>
-									<tbody id="sentimentTable">
-									</tbody>
-								</table>
+								<div class="scroller">
+									<table>
+										<tr>
+											<th> ID: </th>
+											<th> Text: </th>
+											<th> Category: </th>
+										</tr>
+										<tbody id="sentimentTable">
+										</tbody>
+									</table>
+								</div>
 								<ul>
 									<div class="col-4 col-12-small" id="data"></div>
 								</ul>
@@ -78,6 +80,9 @@
 										<ul class="actions">
 											<li><input type="submit" value="Update Classifier" class="primary" id="update_button" /></li>
 										</ul>
+										<div class="centering_container" id="loader">
+											<div class="loader"></div>
+										</div>
 									</div>
 							</section>
 					</div>

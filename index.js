@@ -126,7 +126,7 @@ app.use(express.json({ limit: '1mb' }));
 });
 
 	app.get('/postgres_api', (request, response) => {
-		pool.query(`SELECT * FROM Address;`, (err, res) => {
+		pool.query(`SELECT * FROM Address`, (err, res) => {
     	if (err) {
         	console.log("Postgres API Error - Failed to select all from Address");
         	console.log(err);
@@ -156,23 +156,25 @@ app.use(express.json({ limit: '1mb' }));
 	});
 });
 
-	//Sentiment Table API
+	//Sentiment Data API
 
 	app.post('/sentiment_post', (request, response) => {
+		var text = request.body.classifiertext;
+		var fixed_text = text.replace("'", ""); //Removed because they interfere with query statement
 		pool.query(`INSERT INTO Sentiment(text,category) 
-			Values('${request.body.classifiertext}','${request.body.category}');`, (err, res) => {
+			Values('${fixed_text}','${request.body.category}');`, (err, res) => {
 	    if (err) {
 	        console.log("Sentiment API Error - Failed to insert data");
 	        console.log(err);
 	    }
 	    else{
-	        console.log("Sentiment POST success: " + request.body.classifiertext + " " + request.body.category);
+	        console.log("Sentiment POST success: " + request.body.classifiertext + " - " + request.body.category);
 	        response.json(res.rows);
 	    }
 	});
 });
 	app.get('/sentiment_get', (request, response) => {
-		pool.query(`SELECT * FROM Sentiment;`, (err, res) => {
+		pool.query(`SELECT * FROM Sentiment ORDER BY id DESC`, (err, res) => {
     	if (err) {
         	console.log("Sentiment API Error - Failed to select all from Sentiment");
         	console.log(err);
@@ -203,7 +205,7 @@ app.use(express.json({ limit: '1mb' }));
 
 		var classifier = new natural.BayesClassifier();
 
-		pool.query(`SELECT * FROM Sentiment;`, (err, res) => { //Replace Address with Sentiment
+		pool.query(`SELECT * FROM Sentiment`, (err, res) => { //Replace Address with Sentiment
 		if (err) {
 			console.log("Sentiment train - Failed to select all from Sentiment");
 			console.log(err);

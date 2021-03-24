@@ -4746,14 +4746,11 @@ input, select, textarea {
 /* Used in Classifier */
 
 	.result_box {
-		font-weight: 900;
-		text-align: center;
-		border: solid 2px;
-		margin-bottom: 2rem;
-		margin-top: 2rem;
-		padding: 1.5rem;
+		display: none;
 	}
 	.result_box--positive {
+		display: flex;
+		justify-content: center;
 		font-weight: 900;
 		text-align: center;
 		border: solid 2px;
@@ -4763,6 +4760,8 @@ input, select, textarea {
 		padding: 1.5rem;
 	}
 	.result_box--negative {
+		display: flex;
+		justify-content: center;
 		font-weight: 900;
 		text-align: center;
 		border: solid 2px;

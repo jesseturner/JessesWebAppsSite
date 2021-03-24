@@ -89,14 +89,12 @@ app.use(express.json({ limit: '1mb' }));
 
 	app.get('/sentiment/:id', (request, response) => {
 		id = request.params.id;
-		console.log('GET sentiment with Id: ', id);
 		sentimentdb.find({ _id: id}, function(err, docs) {
 	    if (err) {
 	    	response.end();
 	    	console.log('FIND error in sentimentdb');
 	    }
 	    response.json(docs);
-	    console.log('GET sentiment: ', docs);
 		});
 	});
 

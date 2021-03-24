@@ -209,10 +209,10 @@ app.use(express.json({ limit: '1mb' }));
 		if (err) {
 			console.log("Sentiment train - Failed to select all from Sentiment");
 			console.log(err);
+			response.end();
 			return;
 		}
 		else {
-			console.log(res.rows); //Returns in JSON format! Just as needed. 
 			const data = res.rows;
 
 			data.forEach(item=>{
@@ -224,8 +224,8 @@ app.use(express.json({ limit: '1mb' }));
 			classifier.save('nvclassifier_postgres.json', function(err,classifier){}); // May need version of this table in postgres
 
 			var raw = JSON.stringify(classifier);
-			console.log(raw);
+			response.json(raw);
 			}
-		}); 
+		});
 	});
 

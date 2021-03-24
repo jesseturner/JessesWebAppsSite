@@ -18,7 +18,6 @@ postivebutton.onclick = async function sendData() {
 	    const json = await response; 
 	    console.log(json);
 
-	//getData();
 	};
 
 
@@ -37,6 +36,4 @@ negativebutton.onclick = async function sendData() {
 	    const response = await fetch('/sentiment_post', options);
 	    const json = await response; 
 	    console.log(json);
-
-	getData();
 	};

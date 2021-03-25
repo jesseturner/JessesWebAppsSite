@@ -75,8 +75,9 @@ app.use(express.json({ limit: '1mb' }));
 		const data = request.body;
 		natural.BayesClassifier.load('nvclassifier_postgres.json',null,function(err,classifier){
 			message = data.message;
-			const result = classifier.classify(message);
-		sentimentdb.insert({ message, result }, function(err, newDocs) {
+			const result = classifier.getClassifications(message)[0].label;
+			const value = classifier.getClassifications(message)[0].value;
+		sentimentdb.insert({ message, result, value }, function(err, newDocs) {
 				if (err) {
 	    			response.end();
 	    			console.log('INSERT error in sentimentdb');

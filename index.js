@@ -228,3 +228,21 @@ app.use(express.json({ limit: '1mb' }));
 		});
 	});
 
+
+//Raw Classifier Data
+
+	app.get('/rawclassifier_get', (request, response) => {
+		natural.BayesClassifier.load('nvclassifier_postgres.json',null,function(err,classifier){
+
+			if (err) {
+				console.log("Raw classifier - Failed to load");
+				console.log(err);
+				response.end();
+				return;
+			}
+			else {
+				var raw = JSON.stringify(classifier);
+				response.json(raw);
+			}
+		});
+	});

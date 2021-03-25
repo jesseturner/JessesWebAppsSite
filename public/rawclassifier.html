@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Sentiment Classifier</title>
+		<title>Raw Classifier</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -21,9 +21,9 @@
 					<nav id="nav">
 						<ul class="links">
 							<li><a href="index.html">Updates & Logs</a></li>
-							<li class="active"><a href="sentiment_classifier.html">Sentiment Classifier</a></li>
+							<li><a href="sentiment_classifier.html">Sentiment Classifier</a></li>
 							<li><a href="classifier_training_data.html">Classifier Training Data</a></li>
-							<li><a href="rawclassifier.html">Raw Classifier Data</a></li>
+							<li class="active"><a href="rawclassifier.html">Raw Classifier Data</a></li>
 							<li><a href="postgres_database_query.html">Database Query</a></li>
 						</ul>
 					</nav>
@@ -36,33 +36,19 @@
 										<div class="simple_flex_child">
 											<header>
 												<span class="date">Last Software Update: March 25th, 2021</span>
-												<h2>Sentiment Classifier</h2>
+												<h2>Raw Classifier</h2>
 											</header>
-											<p class="description">To use, simply put the text you want classified in the message container, and evaluate
-											for a result. If you get an unexpected answer, feel free to navigate to "Classifier Training Data" and add the 
-											correct evaluation to the training dataset. </p>
+											<p class="description">This is the data used be the classifier to determine a result. This data is saved locally(?), the cloud-hosted training data is used to generate the model when needed. In the future, I may save the actual classifier into a Postgres table so it can be accessed without running a training session locally. </p>
 										</div>
 						</div>
-							<section>
-								<form name="send">
-									<div class="fields">
-										<div class="field">
-											<label for="message">Message</label>
-											<input type="text" name="message" id="message">
-										</div>
-										<div class="field">
-											<input type="button" value="Evaluate" id="send_button" />
-											<div class="result_box" id="response"></div>
-										</div>
-									</div>
-								</form>
-							</section>
+						<div id="data">
+							
+						</div>
 					</div>
 
 
 		<!-- Scripts -->
-			<script src="get_result.js"></script>
-			<script src="post_sentiment.js"></script>
+			<script src="rawclassifier_get.js"></script>
 
 
 

@@ -9,19 +9,23 @@
 {"message":"come on","result":"positive","_id":"6Zx4mKUvbuTBd87H"}
 {"message":"woohoo","result":"positive","_id":"6cZlptcY8Lz6DUae"}
 {"message":"awesome","result":"positive","_id":"6yOMS5suyD6JqQFW"}
+{"message":"fantastic","result":"positive","value":0.09090909090909093,"_id":"79lzTCRe91FWasCo"}
 {"message":"awesome","result":"positive","_id":"7aKAMTiTn0VN9XQC"}
 {"message":"awesome","result":"positive","_id":"8BkAUMdyeKCbVQVI"}
 {"message":"no thank you","result":"positive","_id":"8Cgf0xnNEC58NkPP"}
 {"message":"terrible","result":"negative","_id":"8MsUkgAlkQfre0du"}
 {"message":"awesome","result":"positive","_id":"AK6m9Tn1wqehn73h"}
+{"message":"good","result":"positive","value":0.12121212121212122,"_id":"APfzk04C5PA71NiN"}
 {"message":"fantastic","result":"positive","_id":"AQt1Y3eyAMCVrKop"}
 {"message":"horrifying","result":"positive","_id":"ARifaMHjz6uiAvc4"}
 {"message":"awesome","result":"positive","_id":"AaV2y6xrN8insT4T"}
 {"message":"you're crazy","result":"positive","_id":"BuFsFxRtf7ajQgpZ"}
 {"message":"splendid","result":"positive","_id":"DlybLEGFc9fSJUtz"}
+{"message":"bad","result":"negative","value":0.09090909090909091,"_id":"FTGtnjjgqvNM1rTQ"}
 {"message":"well this is terrible","result":"negative","_id":"G1XjotlesjwiIYDH"}
 {"message":"horrible","result":[{"label":"negative","value":0.060606060606060615},{"label":"positive","value":0.030303030303030297}],"_id":"HsWkIm4ZXSA98xlN"}
 {"message":"splendid","result":[{"label":"positive","value":0.5757575757575758},{"label":"negative","value":0.45454545454545453}],"_id":"HxnRXWp0jEejRKE0"}
+{"message":"boo","result":"positive","value":0.5757575757575758,"_id":"IXSl8HDW3oCFmpJT"}
 {"message":"awesome","result":"positive","_id":"J3m3c5UjOCHh1Abb"}
 {"message":"disaster","result":"positive","value":0.5757575757575758,"_id":"JWno1wsTw9z1rZwc"}
 {"message":"terrible","result":"negative","_id":"JybWaFMFEiHocIrR"}
@@ -34,6 +38,7 @@
 {"message":"What is that??","result":"positive","_id":"MoSi25zddErTTdKZ"}
 {"message":"awesome","result":"positive","_id":"MpLGJ59DFAEDPQBm"}
 {"message":"bad","result":"positive","_id":"NA9M9H2nZkmLPwmg"}
+{"message":"terrible","result":"negative","value":0.060606060606060615,"_id":"Ntw6Dex2XNXzGGaJ"}
 {"message":"awesome","result":[{"label":"positive","value":0.5757575757575758},{"label":"negative","value":0.45454545454545453}],"_id":"O1kULqPGB8AIoOVp"}
 {"message":"splendid","result":"positive","_id":"ORMe7FDczGaorb87"}
 {"message":"excellent","result":"positive","_id":"OwMuCYNwnO1euW3d"}
@@ -51,6 +56,7 @@
 {"message":"fantastic","result":"positive","_id":"V5J62eB6IjrnFDEN"}
 {"message":"horrible","result":"negative","_id":"WLgKsuv18fpScrWf"}
 {"message":"screw","result":"negative","_id":"XcHfSnVsi4DKwDWs"}
+{"message":"awesome","result":"positive","value":0.5757575757575758,"_id":"Ygj95tARYnHkqEgN"}
 {"message":"awesome","result":"positive","_id":"YnDv0GTd02UtADiR"}
 {"message":"awesome","result":"positive","_id":"ZDGiu1TiGKMSGd4O"}
 {"message":"good","result":"positive","_id":"aNPeLC6hcIutbWce"}
@@ -63,8 +69,10 @@
 {"message":"terrible","result":"negative","_id":"hNvl3hOm7Q0AqRDq"}
 {"message":"awesome","result":"positive","value":0.5757575757575758,"_id":"hbc8SKlt89kCvsdx"}
 {"message":"disaster","result":"positive","_id":"iJxcN4avLoKm0YiG"}
+{"message":"no","result":"positive","value":0.5757575757575758,"_id":"iu3lEgkp0RzJFPfW"}
 {"message":"awesome","result":"positive","_id":"iwNBTHg4hnt8bXpC"}
 {"message":"","result":"positive","_id":"j5lAPRWvLRrhv7nx"}
+{"message":"great","result":"positive","value":0.5757575757575758,"_id":"jm3Lhd3gttzYkTJZ"}
 {"message":"awesome","result":"positive","_id":"jsWVcimu738RyBVa"}
 {"message":"screw off","result":"negative","_id":"juBDaamlIl2oY22L"}
 {"message":"FU","result":"positive","_id":"k7mrXIJxg6oRw57Q"}
@@ -81,7 +89,10 @@
 {"message":"awesome","result":"positive","_id":"qZIXWUNyI0fJu6F0"}
 {"message":"awesome","result":"positive","_id":"scoxF6XoBtYkJ3Bz"}
 {"message":"winner","result":"positive","_id":"t0npt7iMMhFE3nTl"}
+{"message":"yes","result":"positive","value":0.5757575757575758,"_id":"thUFaFJxMfjtYeFd"}
 {"message":"awesome","result":"positive","_id":"ti8WgDNtLj48EOmJ"}
+{"message":"terrible","result":"negative","value":0.060606060606060615,"_id":"tjumQCCLcJXIZ6BT"}
+{"message":"why","result":"positive","value":0.5757575757575758,"_id":"tsqcd7SuAigNVMHG"}
 {"message":"disaster","result":"positive","_id":"uGkUoRnQbwsNSD9H"}
 {"message":"terrible","result":"positive","_id":"v29HMNDLzgBYFRLv"}
 {"message":"awesome","result":"positive","_id":"vC7dlyGgqBDCP37n"}
@@ -95,14 +106,5 @@
 {"message":"awesome","result":"positive","_id":"ybzEjsmq7jbG5Iah"}
 {"message":"disaster","result":"positive","_id":"zBuaPCA8WDuSp7dn"}
 {"message":"hello","result":"positive","_id":"zPBVA5Lc7KZoUtXb"}
-{"message":"terrible","result":"negative","value":0.060606060606060615,"_id":"Ntw6Dex2XNXzGGaJ"}
-{"message":"awesome","result":"positive","value":0.5757575757575758,"_id":"Ygj95tARYnHkqEgN"}
-{"message":"bad","result":"negative","value":0.09090909090909091,"_id":"FTGtnjjgqvNM1rTQ"}
-{"message":"good","result":"positive","value":0.12121212121212122,"_id":"APfzk04C5PA71NiN"}
-{"message":"great","result":"positive","value":0.5757575757575758,"_id":"jm3Lhd3gttzYkTJZ"}
-{"message":"fantastic","result":"positive","value":0.09090909090909093,"_id":"79lzTCRe91FWasCo"}
-{"message":"yes","result":"positive","value":0.5757575757575758,"_id":"thUFaFJxMfjtYeFd"}
-{"message":"boo","result":"positive","value":0.5757575757575758,"_id":"IXSl8HDW3oCFmpJT"}
-{"message":"no","result":"positive","value":0.5757575757575758,"_id":"iu3lEgkp0RzJFPfW"}
-{"message":"why","result":"positive","value":0.5757575757575758,"_id":"tsqcd7SuAigNVMHG"}
-{"message":"terrible","result":"negative","value":0.060606060606060615,"_id":"tjumQCCLcJXIZ6BT"}
+{"message":"disaster","result":"positive","value":0.5757575757575758,"_id":"hcvD29rKtuR19oev"}
+{"message":"terrible","result":"negative","value":0.060606060606060615,"_id":"iRERkemG8rhSLL2s"}

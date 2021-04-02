@@ -252,30 +252,52 @@ app.use(express.json({ limit: '1mb' }));
 app.get('/classifier_train', (request, response) => {
 		var classifier = new Classifier();
 
-		let positive = [
-		    'This is great, so cool!',
-		    'Wow, I love it!',
-		    'It really is amazing',
-		];
-		let negative = [
-		    'This is really bad',
-		    'I hate it with a passion',
-		    'Just terrible!',
-		];
+		pool.query(`SELECT * FROM Sentiment WHERE category='positive'`, (err, res) => { //Replace Address with Sentiment
+		if (err) {
+			console.log("Classifier train - Failed to select positive from Sentiment");
+			console.log(err);
+			response.end();
+			return;
+		}
+		else {
+			var result = [];
 
-		classifier.train(positive, 'positive');
-		classifier.train(negative, 'negative');
+			for(var i in res.rows) {
+    			result.push(res.rows[i].text);
+			}
+			classifier.train(result, 'positive');
 
-		console.log('New classifier trained.');
 
-		let model = classifier.model;
-		let raw = model.serialize();
- 
-		console.log(raw);
+			pool.query(`SELECT * FROM Sentiment WHERE category='negative'`, (err, res) => { //Replace Address with Sentiment
+			if (err) {
+				console.log("Classifier train - Failed to select negative from Sentiment");
+				console.log(err);
+				response.end();
+				return;
+			}
+			else {
+				var result = [];
 
-		//raw.save('new_classifier.json', function(err,classifier){}); // May need version of this table in postgres
+				for(var i in res.rows) {
+	    			result.push(res.rows[i].text);
+				}
+				classifier.train(result, 'negative');
 
-		response.json(raw);
+				//////////////////
+
+				let model = classifier.model;
+				let raw = model.serialize();
+	 
+				console.log(raw);
+
+				response.json(raw);
+
+				//Save the classifier somehow
+			}
+			});
+
+		}
+		}); 
 		
-		});
+	});
 

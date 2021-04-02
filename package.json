@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "ml-classify-text": "^2.0.0",
     "natural": "^2.1.5",
     "nedb": "^1.8.0",
     "pg": "^8.0.2"

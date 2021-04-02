@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const Datastore = require('nedb');
 var natural = require('natural');
+const { Classifier } = require('ml-classify-text')
 
 const port = process.env.PORT || 3000; //3000 if locally
 app.listen(port, () => {
@@ -246,3 +247,35 @@ app.use(express.json({ limit: '1mb' }));
 			}
 		});
 	});
+
+//New classifier
+app.get('/classifier_train', (request, response) => {
+		var classifier = new Classifier();
+
+		let positive = [
+		    'This is great, so cool!',
+		    'Wow, I love it!',
+		    'It really is amazing',
+		];
+		let negative = [
+		    'This is really bad',
+		    'I hate it with a passion',
+		    'Just terrible!',
+		];
+
+		classifier.train(positive, 'positive');
+		classifier.train(negative, 'negative');
+
+		console.log('New classifier trained.');
+
+		let model = classifier.model;
+		let raw = model.serialize();
+ 
+		console.log(raw);
+
+		//raw.save('new_classifier.json', function(err,classifier){}); // May need version of this table in postgres
+
+		response.json(raw);
+		
+		});
+

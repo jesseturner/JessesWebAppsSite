@@ -10,7 +10,7 @@ async function getSentimentResult(id)
 	//Displaying data on the screen
 		for (item of data) {
 			const root = document.createElement('div');
-			var percent = Math.round(item.value*100);
+			var percent = 100 - (Math.round(item.value*100));
 			root.append(item.result, " (", percent, "%)");
 			document.getElementById('response').append(root);
 		}

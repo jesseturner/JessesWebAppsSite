@@ -17,15 +17,3 @@ async function getData()
 		};
 	};
 window.addEventListener("load", getData());
-
-/* Idea for delete button in row
-
-		function onDeleteRow(e) {
-			if (!e.target.classList.contains("deleteBtn")) {
-				return;
-			}
-			alert(`clicked ID = ???`);
-		}
-
-		table.addEventListener("click", onDeleteRow);
-*/

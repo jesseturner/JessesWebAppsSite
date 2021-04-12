@@ -301,3 +301,46 @@ app.get('/classifier_train', (request, response) => {
 		
 	});
 
+// Brainstorming
+
+	app.post('/brainstorm_post', (request, response) => {
+		var text = request.body.idea;
+		var fixed_text = text.replace("'", ""); //Removed because they interfere with query statement
+		pool.query(`INSERT INTO Brainstorming(idea,topic,date) 
+			Values('${fixed_text}','${request.body.topic}', '${request.body.date}');`, (err, res) => {
+	    if (err) {
+	        console.log("Brainstorming API Error - Failed to insert data");
+	        console.log(err);
+	    }
+	    else{
+	        console.log("Brainstorming POST success: " + request.body.idea + " - " + request.body.topic);
+	        response.json(res.rows);
+	    }
+	});
+});
+	app.get('/brainstorm_get', (request, response) => {
+		pool.query(`SELECT * FROM Brainstorming ORDER BY id ASC`, (err, res) => {
+    	if (err) {
+        	console.log("Brainstorming API Error - Failed to select all from Brainstorming");
+        	console.log(err);
+        	response.end();
+			return;
+    	}
+    	else {
+        	response.json(res.rows);
+    	}
+	});
+});
+	app.post('/brainstorm_delete', (request, response) => {
+		pool.query(`DELETE FROM Brainstorming WHERE id = ${request.body.delete_id}`, (err, res) => {
+		if (err) {
+			console.log("Brainstorming API Error - Failed to delete from Brainstorming");
+    		console.log(err);
+    		response.end();
+			return;
+		}
+		else {
+			response.json(res.rows);
+		}
+	});
+});

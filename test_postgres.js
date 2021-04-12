@@ -14,7 +14,7 @@ const pool = new Pool({
 
 // Create new table
 
-pool.query(`CREATE TABLE Sentiment(id SERIAL PRIMARY KEY, text VARCHAR, category VARCHAR);`, (err, res) => {
+pool.query(`CREATE TABLE Brainstorming(id SERIAL PRIMARY KEY, idea VARCHAR, topic VARCHAR, saved BOOLEAN, date TIMESTAMP);`, (err, res) => {
     if (err) {
         console.log("Error - failed to create table");
         console.log(err);

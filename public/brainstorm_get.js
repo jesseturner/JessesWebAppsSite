@@ -1,3 +1,5 @@
+// BRAINSTORM GET TOPICS
+
 async function getTopics()
 	{
 		const get_response = await fetch('/brainstorm_get_topics');
@@ -16,8 +18,16 @@ async function getTopics()
 window.addEventListener("load", getTopics());
 
 
+// BRAINSTORM GET
+
 async function getData(topic)
 	{
+		var header = document.getElementById('headerActive');
+		header.innerHTML = topic;
+
+		var content = document.getElementById('content');
+		content.style.display = "block";
+
 		const get_response = await fetch('/brainstorm_get/' + topic);
 		const data = await get_response.json();
 		console.log(data);
@@ -38,6 +48,7 @@ async function getData(topic)
 	};
 
 
+//BRAINSTORM DELETE
 
 async function deleteEntry(id) {
 	const delete_id = id;
@@ -61,3 +72,31 @@ async function deleteEntry(id) {
 		
 	};
 };
+
+
+// BRAINSTORM POST
+
+var button = document.getElementById("send_button");
+var idea = document.getElementById("idea");
+
+button.onclick = async function sendData() {
+
+	let date = new Date()
+
+	var header = document.getElementById('headerActive');
+	var topic = header.innerHTML;
+
+	var idea = document.send.idea.value;
+	    const data = { idea, topic, date };
+	    const options = {
+	      method: 'POST',
+	      headers: {'Content-Type': 'application/json'},
+	      body: JSON.stringify(data)
+	    };
+	    const response = await fetch('/brainstorm_post', options);
+	    const json = await response; 
+	    console.log(json);
+
+	    getData(topic);
+
+	};

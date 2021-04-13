@@ -8,7 +8,7 @@ button.onclick = async function sendData() {
 	let date = new Date()
 
 	var idea = document.send.idea.value;
-	var topic = "testing";
+	var topic = "testing 2";
 	    const data = { idea, topic, date };
 	    const options = {
 	      method: 'POST',

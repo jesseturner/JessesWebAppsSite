@@ -318,10 +318,10 @@ app.get('/classifier_train', (request, response) => {
 	    }
 	});
 });
-	app.get('/brainstorm_get', (request, response) => {
-		pool.query(`SELECT * FROM Brainstorming ORDER BY id ASC`, (err, res) => {
+	app.get('/brainstorm_get/:topic', (request, response) => {
+		pool.query(`SELECT * FROM Brainstorming WHERE topic = '${request.params.topic}' ORDER BY id ASC`, (err, res) => {
     	if (err) {
-        	console.log("Brainstorming API Error - Failed to select all from Brainstorming");
+        	console.log("Brainstorming API Error - Failed to select " + request.params.topic + " from Brainstorming");
         	console.log(err);
         	response.end();
 			return;
@@ -342,5 +342,18 @@ app.get('/classifier_train', (request, response) => {
 		else {
 			response.json(res.rows);
 		}
+	});
+});
+	app.get('/brainstorm_get_topics', (request, response) => {
+		pool.query(`SELECT topic FROM Brainstorming GROUP BY topic`, (err, res) => {
+    	if (err) {
+        	console.log("Brainstorming API Error - Failed to select all from Brainstorming");
+        	console.log(err);
+        	response.end();
+			return;
+    	}
+    	else {
+        	response.json(res.rows);
+    	}
 	});
 });

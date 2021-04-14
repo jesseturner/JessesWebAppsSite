@@ -91,13 +91,9 @@ async function deleteEntry(id) {
 var button = document.getElementById("send_button");
 var idea_input = document.getElementById("idea");
 
-idea_input.addEventListener("keyup", function(event) {
-  if (event.keyCode === 13) { // Number 13 is the "Enter" key on the keyboard
-    button.click();
-  }
-}); //resets the screen currently
-
-button.onclick = async function sendData() {
+button.onclick = async function sendData(event) {
+	
+	event.preventDefault(); // Removed automatic reload caused by "submit"
 
 	let date = new Date()
 

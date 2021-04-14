@@ -6,13 +6,11 @@ async function getTopics()
 		const data = await get_response.json();
 		console.log(data);
 
-		var list = document.getElementById('list');
+		var tablist = document.getElementById('tabList');
 
 		for (var i = 0; i < data.length; i++) {
-			var row = 	`<ul>
-							<li><button id="${data[i].topic}" onclick="getData('${data[i].topic}')"> ${data[i].topic}</button></li>
-						</ul>`
-			list.innerHTML += row;
+			var tab = 	`<div id="${data[i].topic}" onclick="getData('${data[i].topic}')" class="tab"> ${data[i].topic}</div>`
+			tablist.innerHTML += tab;
 		};
 	};
 window.addEventListener("load", getTopics());
@@ -51,6 +49,9 @@ async function getData(topic)
 //BRAINSTORM DELETE
 
 async function deleteEntry(id) {
+
+	var header = document.getElementById('headerActive');
+	var topic = header.innerHTML;
 	const delete_id = id;
 
 	if (delete_id == '') {
@@ -66,7 +67,7 @@ async function deleteEntry(id) {
 
 	    fetch('/brainstorm_delete', options).then(response => {
                             console.log(response);
-                            location.reload();
+                            getData(topic);
                             });
 
 		
@@ -77,7 +78,13 @@ async function deleteEntry(id) {
 // BRAINSTORM POST
 
 var button = document.getElementById("send_button");
-var idea = document.getElementById("idea");
+var idea_input = document.getElementById("idea");
+
+idea_input.addEventListener("keyup", function(event) {
+  if (event.keyCode === 13) { // Number 13 is the "Enter" key on the keyboard
+    button.click();
+  }
+}); //resets the screen currently
 
 button.onclick = async function sendData() {
 
@@ -98,5 +105,5 @@ button.onclick = async function sendData() {
 	    console.log(json);
 
 	    getData(topic);
-
+	idea_input.value = '';
 	};

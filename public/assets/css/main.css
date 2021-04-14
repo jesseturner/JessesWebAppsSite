@@ -4811,7 +4811,7 @@ input, select, textarea {
 		letter-spacing: 0.075em;
 		background-color: transparent;
 		box-shadow: inset 0 0 0 2px #212931;
-		color: #212931 !important;
+		color: #212931;
 		padding: 0 2rem;
 		font-size: 0.9rem;
 		height: 3.25rem;
@@ -4821,4 +4821,9 @@ input, select, textarea {
 
 	.tab:hover {
 		box-shadow: inset 0 0 0 2px #18bfef;
-		color: #18bfef !important;
+		color: #18bfef;
+	}
+
+	.selected {
+		background-color: #D4D6D9;
+	}

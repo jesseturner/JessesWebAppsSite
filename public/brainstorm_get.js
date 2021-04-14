@@ -20,6 +20,17 @@ window.addEventListener("load", getTopics());
 
 async function getData(topic)
 	{
+		// Clearing color from tabs and adding color to selected tab
+		var x = document.getElementsByClassName("tab");
+			var i;
+			for (i = 0; i < x.length; i++) {
+			  x[i].style.backgroundColor = "transparent";
+			}
+		var tab_selected = document.getElementById(topic);
+		tab_selected.style.backgroundColor = "#D4D6D9";
+
+
+		// Making header and showing specific list of ideas
 		var header = document.getElementById('headerActive');
 		header.innerHTML = topic;
 

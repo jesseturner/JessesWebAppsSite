@@ -4793,7 +4793,7 @@ input, select, textarea {
 		width: 20px;
 	}
 
-	.hidden {
+	.entry {
 		display: none;
 	}
 
@@ -4832,6 +4832,7 @@ input, select, textarea {
 
 	.brainstorm {
 		display: flex;
+		margin-bottom: 20px;
 	}
 
 	.brainstorm_input {

@@ -35,3 +35,31 @@ function closeModal(modal) {
 	modal.classList.remove('active');
 	overlay.classList.remove('active');
 }
+
+
+//CREATE NEW TOPIC
+
+var new_topic = document.getElementById("new_topic");
+
+async function sendNewTopic() {
+	
+	let date = new Date()
+
+	var topic = new_topic.value;
+
+	var idea = "";
+	    
+	    const data = { idea, topic, date };
+	    const options = {
+	      method: 'POST',
+	      headers: {'Content-Type': 'application/json'},
+	      body: JSON.stringify(data)
+	    };
+	    const response = await fetch('/brainstorm_post', options);
+	    const json = await response; 
+	    console.log(json);
+
+	    getData(new_topic);
+	new_topic.value = '';
+	closeModal(modal);
+	};

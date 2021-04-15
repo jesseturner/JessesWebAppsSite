@@ -305,7 +305,7 @@ app.get('/classifier_train', (request, response) => {
 
 	app.post('/brainstorm_post', (request, response) => {
 		var text = request.body.idea;
-		var fixed_text = text.replace("'", ""); //Removed because they interfere with query statement
+		var fixed_text = text.replace("'", ""); //Removed because they interfere with query statement (probably better way of doing this)
 		pool.query(`INSERT INTO Brainstorming(idea,topic,date) 
 			Values('${fixed_text}','${request.body.topic}', '${request.body.date}');`, (err, res) => {
 	    if (err) {

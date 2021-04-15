@@ -4823,3 +4823,23 @@ input, select, textarea {
 		box-shadow: inset 0 0 0 2px #18bfef;
 		color: #18bfef;
 	}
+
+	.tab_header {
+		text-align: center;
+		background-color: #D4D6D9;
+	}
+
+	.brainstorm {
+		display: flex;
+	}
+
+	.brainstorm_input {
+		width: 70%;
+	}
+
+	.brainstorm_button {
+		width: 30%;
+		text-align: center;
+	}
+
+	}

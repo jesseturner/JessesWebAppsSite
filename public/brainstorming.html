@@ -45,6 +45,24 @@
 							<div id="tabList" class="tab_list">
 							</div>
 
+<!-- POPUP FOR NEW TOPIC -->
+							<div class="modal" id="modal">
+								<div class="modal_header">
+									<div class="modal_header title">New topic to brainstorm</div>
+									<div data-modal-close class="modal_header close">&times;</div>
+								</div>
+								<form onsubmit="" class=modal_content>
+									<div class="modal_topic_input">
+										<input type="text" id="new_topic" />
+									</div>
+									<div class="modal_add_button">
+										<input type="submit" value="Add" id="new_topic_button" />
+									</div>
+									
+							</div>
+							<div id="overlay"></div>
+
+<!-- IDEA ENTRY FORM -->
 							<section id="content" class="hidden">	
 
 								<form name="send" onsubmit="sendData()">
@@ -61,6 +79,7 @@
 									</div>
 								</form>
 
+<!-- LIST OF IDEAS -->
 								<div>
 									<table>
 										<tr>
@@ -81,6 +100,7 @@
 
 		<!-- Scripts -->
 			<script src="brainstorm_get.js"></script>
+			<script type="text/javascript" src="brainstorm_modal.js"></script>
 
 
 			<script src="assets/js/jquery.min.js"></script>

@@ -12,6 +12,10 @@ async function getTopics()
 			var tab = 	`<div id="${data[i].topic}" onclick="getData('${data[i].topic}')" class="tab"> ${data[i].topic}</div>`
 			tablist.innerHTML += tab;
 		};
+
+		var add_tab = 	`<div data-modal-target="#modal" onclick="openModal(modal)" id="add_tab" class="tab">+ new topic</div>`
+		// Not using data target currently, but will need to if more modals are added
+		tablist.innerHTML += add_tab;
 	};
 window.addEventListener("load", getTopics());
 

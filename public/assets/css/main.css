@@ -4802,6 +4802,7 @@ input, select, textarea {
 	}
 
 	.tab {
+		text-transform: uppercase;
 		cursor: pointer;
 		text-align: center;
 		margin-bottom: 60px;
@@ -4842,4 +4843,71 @@ input, select, textarea {
 		text-align: center;
 	}
 
+	.modal {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		transition: 200ms ease-in-out;
+		border: 2px solid black;
+		z-index: 10;
+		background-color: white;
+		width: 500px;
+		max-width: 80%;
+	}
+
+	.modal.active {
+		transform: translate(-50%, -50%) scale(1);
+	}
+
+	.modal_header {
+		text-transform: uppercase;
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		padding: 10px 15px;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.modal_header .title {
+		font-size: 1.2rem;
+	}
+
+	.modal_header .close {
+		cursor: pointer;
+		font-size: 1.2rem;
+		font-weight: bold;
+		width: 40px;
+		text-align: center;
+	}
+
+	.modal_content {
+		padding: 10px 15px;
+		display: flex;
+	}
+
+	.modal_topic_input {
+		flex: 4;
+		margin-bottom: 20px;
+	}
+
+	.modal_add_button {
+		align-items: right;
+	}
+
+	#overlay {
+		position: fixed;
+		opacity: 0;
+		transition: 200ms ease-in-out;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0,0,0,0.5);
+		pointer-events: none;
+	}
+
+	#overlay.active {
+		opacity: 1;
+		pointer-events: all;
 	}

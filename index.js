@@ -357,3 +357,18 @@ app.get('/classifier_train', (request, response) => {
     	}
 	});
 });
+
+//World Leaders
+	app.get('/world_leaders/:id', (request, response) => {
+		pool.query(`SELECT * FROM world_leaders WHERE id = '${request.params.id}'`, (err, res) => {
+    	if (err) {
+        	console.log("World Leaders API Error - Failed to select " + request.params.id + " from world_leaders");
+        	console.log(err);
+        	response.end();
+			return;
+    	}
+    	else {
+        	response.json(res.rows);
+    	}
+	});
+});

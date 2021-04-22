@@ -13,7 +13,7 @@ const pool = new Pool({
 //Command-Line Postgres SQL is not yet set up
 
 // Create new table
-
+/*
 pool.query(`CREATE TABLE Brainstorming(id SERIAL PRIMARY KEY, idea VARCHAR, topic VARCHAR, saved BOOLEAN, date TIMESTAMP);`, (err, res) => {
     if (err) {
         console.log("Error - failed to create table");
@@ -23,7 +23,7 @@ pool.query(`CREATE TABLE Brainstorming(id SERIAL PRIMARY KEY, idea VARCHAR, topi
         console.log(res.rows);
     }
 });
-
+*/
 
 // Get all data from table
 /*
@@ -51,3 +51,16 @@ pool.query(`INSERT INTO Users(FirstName,LastName) Values('Jesse','Turner');`, (e
 });
 */
 
+// DOESNT WORK YET TO UPLOAD IMAGE TO DATABASE
+
+pool.query(`UPDATE world_leaders
+SET Image = /image/Joe_Biden_presidential_portrait.jpeg
+WHERE id = 1;`, (err, res) => {
+    if (err) {
+        console.log("Error - failed to create table");
+        console.log(err);
+    }
+    else{
+        console.log(res.rows);
+    }
+});

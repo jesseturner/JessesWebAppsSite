@@ -4912,3 +4912,23 @@ input, select, textarea {
 		opacity: 1;
 		pointer-events: all;
 	}
+
+
+/* World Leaders */
+
+
+	.leader_wrapper {
+		display: flex;
+	}
+	.leader_image {
+		max-width: 250px;
+		margin-right: 40px;
+	}
+	.leader_info_wrapper {
+		display: flex;
+		max-width: 250px;
+		flex-wrap: wrap;
+	}
+	.leader_info {
+		width: 100%;
+	}

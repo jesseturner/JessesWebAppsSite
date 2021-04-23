@@ -248,59 +248,6 @@ app.use(express.json({ limit: '1mb' }));
 		});
 	});
 
-//New classifier
-app.get('/classifier_train', (request, response) => {
-		var classifier = new Classifier();
-
-		pool.query(`SELECT * FROM Sentiment WHERE category='positive'`, (err, res) => { //Replace Address with Sentiment
-		if (err) {
-			console.log("Classifier train - Failed to select positive from Sentiment");
-			console.log(err);
-			response.end();
-			return;
-		}
-		else {
-			var result = [];
-
-			for(var i in res.rows) {
-    			result.push(res.rows[i].text);
-			}
-			classifier.train(result, 'positive');
-
-
-			pool.query(`SELECT * FROM Sentiment WHERE category='negative'`, (err, res) => { //Replace Address with Sentiment
-			if (err) {
-				console.log("Classifier train - Failed to select negative from Sentiment");
-				console.log(err);
-				response.end();
-				return;
-			}
-			else {
-				var result = [];
-
-				for(var i in res.rows) {
-	    			result.push(res.rows[i].text);
-				}
-				classifier.train(result, 'negative');
-
-				//////////////////
-
-				let model = classifier.model;
-				let raw = model.serialize();
-	 
-				console.log(raw);
-
-				response.json(raw);
-
-				//Save the classifier somehow
-			}
-			});
-
-		}
-		}); 
-		
-	});
-
 // Brainstorming
 
 	app.post('/brainstorm_post', (request, response) => {

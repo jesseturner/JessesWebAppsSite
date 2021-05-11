@@ -44,17 +44,29 @@
 
 
 <!-- RANDOM NAME FROM TABLE -->
-						<div>
-							<input type="submit" value="Random" id="random_button" />
+						<div class="leader_header">
+							<input type="submit" value="Start Game" id="random_button" />
+							<div id="score" class="leader_score"></div>
 						</div>
+
 						
-						<div class="leader_wrapper">
-							<div id="leader_image"></div>
-							<div class="leader_info_wrapper">
-								<div id="leader_name" class="leader_info"></div>		
-								<div id="leader_title" class="leader_info"></div>	
-								<div id="leader_country" class="leader_info"></div>	
-							</div>
+						<div class="leader_wrapper" id="game">
+							<div id="leader_image" class="leader_image"></div>
+							<ul class="leader_options_wrapper">
+								<li class="leader_option">
+									<div id="leader_info_0" class="answer_leader"></div>		
+								</li>
+								<li class="leader_option">
+									<div id="leader_info_1" class="answer_leader"></div>			
+								</li>
+								<li class="leader_option">
+									<div id="leader_info_2" class="answer_leader"></div>		
+								</li>
+								<li class="leader_option">
+									<div id="leader_info_3" class="answer_leader"></div>		
+								</li>
+							</ul>
+
 						</div>
 
 					</div>

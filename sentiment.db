@@ -52,6 +52,7 @@
 {"message":"disaster","result":"positive","_id":"MoB3ivvvqV7dnzJX"}
 {"message":"What is that??","result":"positive","_id":"MoSi25zddErTTdKZ"}
 {"message":"awesome","result":"positive","_id":"MpLGJ59DFAEDPQBm"}
+{"message":"What a day!","result":"positive","value":0.5306122448979592,"_id":"MxbDaO0IWLT2RKdL"}
 {"message":"bad","result":"positive","_id":"NA9M9H2nZkmLPwmg"}
 {"message":"Just another day","result":"negative","value":0.04761904761904762,"_id":"ND3Hi8yFc6fnXrHZ"}
 {"message":"terrible","result":"negative","value":0.060606060606060615,"_id":"Ntw6Dex2XNXzGGaJ"}
@@ -142,4 +143,3 @@
 {"message":"awesome","result":"positive","_id":"ybzEjsmq7jbG5Iah"}
 {"message":"disaster","result":"positive","_id":"zBuaPCA8WDuSp7dn"}
 {"message":"hello","result":"positive","_id":"zPBVA5Lc7KZoUtXb"}
-{"message":"What a day!","result":"positive","value":0.5306122448979592,"_id":"MxbDaO0IWLT2RKdL"}

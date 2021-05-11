@@ -4920,9 +4920,21 @@ input, select, textarea {
 	.leader_wrapper {
 		display: none;
 	}
+	@media screen and (max-width: 736px) {
+		.leader_wrapper{
+			flex-direction: column;
+		}
+	}
+
 	.leader_image {
 		width: 80%;
 		margin-right: 5%;
+	}
+	@media screen and (max-width: 736px) {
+		.leader_image{
+			margin-left: 10%;
+			margin-right: 10%;
+		}
 	}
 	.leader_options_wrapper {
 		width: 100%;

@@ -20,7 +20,7 @@ button.onclick = async function getInfo()
 
 
 		//Set correct answer and photo
-		var correct_id = Math.floor(Math.random() * 103);
+		var correct_id = Math.floor(Math.random() * 134);
 
 		const get_response = await fetch('/world_leaders/' + correct_id);
 		const data = await get_response.json();
@@ -39,7 +39,7 @@ button.onclick = async function getInfo()
 		//Set incorrect answers
 		var i;
 		for (i = 1; i < 4; i++) {
-			var id = Math.floor(Math.random() * 103);
+			var id = Math.floor(Math.random() * 134);
 
 			const get_response = await fetch('/world_leaders/' + id);
 			const data = await get_response.json();

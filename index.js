@@ -319,3 +319,62 @@ app.use(express.json({ limit: '1mb' }));
     	}
 	});
 });
+
+
+//Bitcoin API
+
+
+/* Make Token ------------------ Not needed at the moment ------------------------
+	var unirest = require("unirest");
+
+	var req = unirest("POST", "https://bravenewcoin.p.rapidapi.com/oauth/token");
+
+	req.headers({
+		"content-type": "application/json",
+		"x-rapidapi-key": "8a4df8acb7mshadf58c9c6adaba9p1d6261jsnc86783a27a43",
+		"x-rapidapi-host": "bravenewcoin.p.rapidapi.com",
+		"useQueryString": true
+	});
+
+	req.type("json");
+	req.send({
+		"audience": "https://api.bravenewcoin.com",
+		"client_id": "oCdQoZoI96ERE9HY3sQ7JmbACfBf55RY",
+		"grant_type": "client_credentials"
+	});
+
+	req.end(function (res) {
+		if (res.error) throw new Error(res.error);
+
+		console.log(res.body);
+	}); -------------------------------------------------------------------------- */
+
+
+//Get Price
+app.get('/bitcoin', (request, response) => {
+	var unirest = require("unirest");
+
+	var req = unirest("GET", "https://bravenewcoin.p.rapidapi.com/market-cap");
+
+	req.query({
+		"assetId": "f1ff77b6-3ab4-4719-9ded-2fc7e71cff1f"
+	});
+
+	req.headers({
+		"authorization": "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Ik5EVXhNRGhHT0VReE56STVOelJCTTBJM1FrUTVOa0l4TWtRd1FrSTJSalJFTVRaR1F6QTBOZyJ9.eyJpc3MiOiJodHRwczovL2F1dGguYnJhdmVuZXdjb2luLmNvbS8iLCJzdWIiOiJvQ2RRb1pvSTk2RVJFOUhZM3NRN0ptYkFDZkJmNTVSWUBjbGllbnRzIiwiYXVkIjoiaHR0cHM6Ly9hcGkuYnJhdmVuZXdjb2luLmNvbSIsImlhdCI6MTYyMDg4NDE3NCwiZXhwIjoxNjIwOTcwNTc0LCJhenAiOiJvQ2RRb1pvSTk2RVJFOUhZM3NRN0ptYkFDZkJmNTVSWSIsInNjb3BlIjoicmVhZDppbmRleC10aWNrZXIgcmVhZDpyYW5raW5nIHJlYWQ6bXdhIHJlYWQ6Z3dhIHJlYWQ6YWdncmVnYXRlcyByZWFkOm1hcmtldCByZWFkOmFzc2V0IHJlYWQ6b2hsY3YgcmVhZDptYXJrZXQtY2FwIiwiZ3R5IjoiY2xpZW50LWNyZWRlbnRpYWxzIn0.Pe7yxOXCb3IRVxfr2t5_H-FcuSQ1nreN-0NXEUo4I9wAdOsdjFVsT2kF0D3rtcYUXrG5dJFVBdJwA7ewx3mieW8Uu_TMumgKuMKrqfV-OwDtk0KFSv7yeQ1KtVbcJlv95iRXzYGLbU29SzM-MsdRq3QRYTCsV95Ot1WzUyVhqTnUuBCyEhtUhB-YjahCMgbUjqlFvrPfUHQrRth92UpKCtyg7Zdoysu3aQI5v_zvEGxtSmxmSBl04SsUaT4EFseiLw9jBK5AiGl448YvH8kLDAQetMXQEeHJr5wpa3h53iZ7VJZlPqC2Ab5qxDx44UPO3om0ElYXUmVEKBEkJf2PQg",
+		// Token may need to be created again if it stops working
+		"x-rapidapi-key": "8a4df8acb7mshadf58c9c6adaba9p1d6261jsnc86783a27a43",
+		"x-rapidapi-host": "bravenewcoin.p.rapidapi.com",
+		"useQueryString": true
+	});
+
+
+	req.end(function (res) {
+		if (res.error) throw new Error(res.error);
+
+		response.json(res.body);
+	});
+});
+
+
+

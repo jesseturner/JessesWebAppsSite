@@ -4983,3 +4983,26 @@ input, select, textarea {
 		font-weight: 550;
 		border-color: #f22a20;
 	}
+
+
+/* Bitcoin Price */
+
+
+	.price_container {
+		display: flex;
+		justify-content: center;
+		margin-bottom: 3rem;
+	}
+	.price {
+		font-family: "Source Sans Pro", Helvetica, sans-serif;
+		font-size: 3rem;
+		color: #daa520;
+		border-radius: 50%;
+	    width: 250px;
+	    height: 250px;
+	   	display: flex;
+		justify-content: center;
+		align-items: center;
+	    border: 5px solid #ffd700;
+  		transition: 200ms ease-in-out;
+	}

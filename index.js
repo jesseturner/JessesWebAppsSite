@@ -351,57 +351,58 @@ app.use(express.json({ limit: '1mb' }));
 
 //Get Price
 
-app.get('/bitcoin', (request, response) => {
-	var unirest = require("unirest");
+	app.get('/bitcoin_token', (request, response) => {
 
-	var req_token = unirest("POST", "https://bravenewcoin.p.rapidapi.com/oauth/token");
+		var unirest = require("unirest");
 
-	req_token.headers({
-		"content-type": "application/json",
-		"x-rapidapi-key": "8a4df8acb7mshadf58c9c6adaba9p1d6261jsnc86783a27a43",
-		"x-rapidapi-host": "bravenewcoin.p.rapidapi.com",
-		"useQueryString": true
+		var req = unirest("POST", "https://bravenewcoin.p.rapidapi.com/oauth/token");
+
+		req.headers({
+			"content-type": "application/json",
+			"x-rapidapi-key": "8a4df8acb7mshadf58c9c6adaba9p1d6261jsnc86783a27a43",
+			"x-rapidapi-host": "bravenewcoin.p.rapidapi.com",
+			"useQueryString": true
+		});
+
+		req.type("json");
+		req.send({
+			"audience": "https://api.bravenewcoin.com",
+			"client_id": "oCdQoZoI96ERE9HY3sQ7JmbACfBf55RY",
+			"grant_type": "client_credentials"
+		});
+
+		req.end(function (res) {
+			if (res.error) throw new Error(res.error);
+
+			response.json(res.body.access_token);
+		});
+
+	app.get('/bitcoin/:token', (request, response) => {
+
+		var unirest = require("unirest");
+
+		var req = unirest("GET", "https://bravenewcoin.p.rapidapi.com/market-cap");
+
+		req.query({
+			"assetId": "f1ff77b6-3ab4-4719-9ded-2fc7e71cff1f"
+		});
+
+		req.headers({
+			"authorization": `Bearer ${request.params.token}`,
+			"x-rapidapi-key": "8a4df8acb7mshadf58c9c6adaba9p1d6261jsnc86783a27a43",
+			"x-rapidapi-host": "bravenewcoin.p.rapidapi.com",
+			"useQueryString": true
+		});
+
+
+		req.end(function (res) {
+			if (res.error) throw new Error(res.error);
+
+			response.json(res.body);
+		});
+
 	});
 
-	req_token.type("json");
-	req_token.send({
-		"audience": "https://api.bravenewcoin.com",
-		"client_id": "oCdQoZoI96ERE9HY3sQ7JmbACfBf55RY",
-		"grant_type": "client_credentials"
-	});
-
-	req_token.end( (res) => {
-		if (res.error) throw new Error(res.error);
-		//else return res.body.access_token
-		console.log("Bearer " + res.body.access_token);
-	});
-
-	//console.log(token);
-
-
-/*
-	var req = unirest("GET", "https://bravenewcoin.p.rapidapi.com/market-cap");
-
-	req.query({
-		"assetId": "f1ff77b6-3ab4-4719-9ded-2fc7e71cff1f"
-	});
-
-	req.headers({
-		"authorization": token,
-		// Token may need to be created again if it stops working
-		"x-rapidapi-key": "8a4df8acb7mshadf58c9c6adaba9p1d6261jsnc86783a27a43",
-		"x-rapidapi-host": "bravenewcoin.p.rapidapi.com",
-		"useQueryString": true
-	});
-
-
-	req.end(function (res) {
-		if (res.error) throw new Error(res.error);
-
-		response.json(res.body);
-	});
-
-*/
 });
 
 

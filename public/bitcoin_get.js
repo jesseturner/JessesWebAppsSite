@@ -1,13 +1,15 @@
 async function getPrice()
 	{
-		const get_response = await fetch('/bitcoin');
-		const data = await get_response.json();
-		console.log(data);
-
+	    const get_token = await fetch('/bitcoin_token');
+		const token = await get_token.json();
+	   	
+		const get_price = await fetch('/bitcoin/'+token);
+		const data = await get_price.json();
+		
 		var price = document.getElementById('price');
 		price.innerHTML = "$" + commaSeparateNumber(Math.round(data.content[0].price));
-
 	};
+
 window.addEventListener("load", getPrice());
 
 

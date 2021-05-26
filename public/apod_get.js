@@ -7,6 +7,9 @@ async function getPhoto()
 		var title = document.getElementById('title');
 		title.innerHTML = data.body.title;
 
+		var date = document.getElementById('date');
+		date.innerHTML = data.body.date;
+
 		var image = document.getElementById('image');
 		image.innerHTML = `<img src= ${data.body.url} alt="APOD not available - Contact Jesse">`;
 

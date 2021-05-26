@@ -1,0 +1,26 @@
+.apod_header {
+	font-size: 24px;
+	font-weight: bold;
+	padding-bottom: 10px;
+	text-align: center;
+}
+.apod_date {
+	font-size: 20px;
+	text-align: center;
+	font-style: italic;
+	padding-bottom: 10px;
+}
+.apod_image {
+	display: flex;
+	justify-content: center;
+}
+.apod_text {
+	padding: 40px;
+}
+
+@media screen and (max-width: 736px) {
+	.apod_text {
+		padding: 0px;
+		margin-top: 20px;
+	}
+}

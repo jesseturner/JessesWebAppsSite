@@ -5,8 +5,10 @@ async function getPhoto()
 		console.log(data);
 		
 		var image = document.getElementById('image');
-		//image.innerHTML = `<img src= ${data.body.url}/>`; //Of course, image not stored in website root
-		image.innerHTML = data.body.url;
+		image.innerHTML = `<img src= ${data.body.url} alt="APOD not available - Contact Jesse">`;
+
+		var desc = document.getElementById('desc');
+		desc.innerHTML = data.body.explanation;
 	};
 
 window.addEventListener("load", getPhoto());

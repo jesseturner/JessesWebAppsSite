@@ -4,6 +4,9 @@ async function getPhoto()
 		const data = await get_image.json();
 		console.log(data);
 		
+		var title = document.getElementById('title');
+		title.innerHTML = data.body.title;
+
 		var image = document.getElementById('image');
 		image.innerHTML = `<img src= ${data.body.url} alt="APOD not available - Contact Jesse">`;
 

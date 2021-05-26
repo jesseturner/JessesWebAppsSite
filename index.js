@@ -405,5 +405,20 @@ app.use(express.json({ limit: '1mb' }));
 
 });
 
+	app.get('/apod', (request, response) => {
+
+		var unirest = require("unirest");
+
+		//var req = unirest("GET", "https://api.nasa.gov/planetary/apod");
+		var req = unirest("GET", "https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY");
+		
+
+		req.end((res) => {
+			if (res.error) throw new Error(res.error);
+
+			response.json(res);
+		})
+	})
+
 
 

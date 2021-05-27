@@ -10,12 +10,20 @@
 	font-style: italic;
 	padding-bottom: 10px;
 }
-.apod_image {
+.apod_image_cont {
 	display: flex;
 	justify-content: center;
 }
+.apod_image {
+	width: 100%;
+}
 .apod_text {
 	padding: 40px;
+}
+.apod_source {
+	text-align: center;
+	padding: 20px;
+	font-style: italic;
 }
 
 @media screen and (max-width: 736px) {

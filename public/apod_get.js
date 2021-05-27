@@ -11,7 +11,12 @@ async function getPhoto()
 		date.innerHTML = data.body.date;
 
 		var image = document.getElementById('image');
-		image.innerHTML = `<img src= ${data.body.url} alt="APOD not available - Contact Jesse">`;
+		image.innerHTML = `<img src= ${data.body.url} alt="APOD not available - Contact Jesse" class="apod_image">`;
+
+		var source = document.getElementById('source');
+		if (data.body.copyright !== undefined) {
+			source.innerHTML = "Copyright: " + data.body.copyright;
+		}
 
 		var desc = document.getElementById('desc');
 		desc.innerHTML = data.body.explanation;

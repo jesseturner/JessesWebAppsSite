@@ -420,5 +420,48 @@ app.use(express.json({ limit: '1mb' }));
 		})
 	})
 
+	app.get('/bea', (request, response) => {
+
+		var unirest = require("unirest");
+
+		//var req = unirest("GET", "https://apps.bea.gov/api/data?&UserID=3E756708-3FBC-4DAC-B1F5-3E1C47AF74EE&method=GETDATASETLIST&");
+		var req = unirest("GET", "http://apps.bea.gov/api/data?&UserID=3E756708-3FBC-4DAC-B1F5-3E1C47AF74EE&method=GetData&datasetname=Regional&TableName=SAINC1&GeoFIPS=STATE&LineCode=3&Year=2020&ResultFormat=HTML");
+		
+		req.end((res) => {
+			if (res.error) throw new Error(res.error);
+
+			response.json(res);
+		})
+	})
+
+	app.get('/weather', (request, response) => {
+
+		var unirest = require("unirest");
+
+		var req = unirest.get("https://api.weather.gov/points/38.8894,-77.0352");
+			
+		req.headers({'User-Agent': '(https://jesses-web-app.herokuapp.com, jesseturner72@gmail.com)'});
+		
+		req.end((res) => {
+			if (res.error) throw new Error(res.error);
+
+			response.json(res);
+		})
+	})
+
+	app.get('/forecast', (request, response) => {
+
+		var unirest = require("unirest");
+
+		var req = unirest.get('https://api.weather.gov/gridpoints/LWX/96,70/forecast');
+
+		req.headers({'User-Agent': '(https://jesses-web-app.herokuapp.com, jesseturner72@gmail.com)'});
+					
+		req.end((res) => {
+			if (res.error) throw new Error(res.error);
+
+			response.json(res);
+		})
+	})
 
 

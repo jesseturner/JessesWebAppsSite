@@ -418,7 +418,7 @@ app.use(express.json({ limit: '1mb' }));
 
 			response.json(res);
 		})
-	})
+	});
 
 	app.get('/bea', (request, response) => {
 
@@ -432,7 +432,7 @@ app.use(express.json({ limit: '1mb' }));
 
 			response.json(res);
 		})
-	})
+	});
 
 	app.get('/weather/:coordinates', (request, response) => {
 
@@ -440,7 +440,7 @@ app.use(express.json({ limit: '1mb' }));
 
 		var unirest = require("unirest");
 
-		var req = unirest.get("https://api.weather.gov/points/38.8894,-77.0352");
+		var req = unirest.get("https://api.weather.gov/points/" + request.params.coordinates);
 			
 		req.headers({'User-Agent': '(https://jesses-web-app.herokuapp.com, jesseturner72@gmail.com)'});
 		
@@ -449,13 +449,17 @@ app.use(express.json({ limit: '1mb' }));
 
 			response.json(res);
 		})
-	})
+	});
 
-	app.get('/forecast', (request, response) => {
+	app.post('/forecast', (request, response) => {
 
+		var url = request.body.forecast_url;
+		console.log("SUCCESS: " + url);
+		
 		var unirest = require("unirest");
 
-		var req = unirest.get('https://api.weather.gov/gridpoints/LWX/96,70/forecast');
+		//var req = unirest.get('https://api.weather.gov/gridpoints/LWX/96,70/forecast');
+		var req = unirest.get(url);
 
 		req.headers({'User-Agent': '(https://jesses-web-app.herokuapp.com, jesseturner72@gmail.com)'});
 					
@@ -464,6 +468,6 @@ app.use(express.json({ limit: '1mb' }));
 
 			response.json(res);
 		})
-	})
+	});
 
 

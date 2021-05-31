@@ -1,12 +1,19 @@
 async function getWeather()
 	{
 		const coords = await getCoords();
-		const get_weather = await fetch('/weather/'+ coords); //wait until coords returns?
+		const get_weather = await fetch('/weather/'+ coords);
 
 		const data = await get_weather.json();
-		console.log(data.body.properties.forecast);
+		const forecast_url = data.body.properties.forecast;
+		console.log(forecast_url);
 
-		const get_forecast = await fetch('/forecast');
+		const body_url = {forecast_url};
+	    const options = {
+	      method: 'POST',
+	      headers: {'Content-Type': 'application/json'},
+	      body: JSON.stringify(body_url)
+	    };
+		const get_forecast = await fetch('/forecast', options);
 		const forecast = await get_forecast.json();
 		console.log(forecast);
 		

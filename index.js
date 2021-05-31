@@ -434,7 +434,9 @@ app.use(express.json({ limit: '1mb' }));
 		})
 	})
 
-	app.get('/weather', (request, response) => {
+	app.get('/weather/:coordinates', (request, response) => {
+
+		console.log(request.params.coordinates);
 
 		var unirest = require("unirest");
 

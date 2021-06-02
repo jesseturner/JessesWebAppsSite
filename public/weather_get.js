@@ -18,18 +18,38 @@ async function getWeather()
 		console.log(forecast);
 		
 
-		
-		var table = document.getElementById('forecast_table');
+		calendar = document.getElementById('calendar');
 		table_data = forecast.body.properties.periods
-
 		for (var i = 0; i < table_data.length; i++) {
-			var row = 	`<tr>
-							<td>${table_data[i].name}</td>
-							<td>${table_data[i].shortForecast}</td>
-							<td>${table_data[i].temperature}</td>
-						</tr>`
-			table.innerHTML += row;
-		};
+			var div = document.createElement('div');
+    		div.id = 'day'+i;
+    		div.className = 'day';
+
+    		var date = document.createElement('div');
+    			date.innerHTML = table_data[i].name;
+    			date.className = 'date';
+    			div.appendChild(date);
+
+    		var fc = document.createElement('div');
+    			fc.innerHTML = table_data[i].shortForecast;
+    			fc.className = 'fc';
+    			div.appendChild(fc);
+
+    		var temp = document.createElement('div');
+    			temp.innerHTML = table_data[i].temperature + '&deg;';
+    			temp.className = 'temp';
+    			div.appendChild(temp);
+
+    		calendar.appendChild(div);
+    	}
+
+		// Hide loaders and show content
+		//table.style.display = "table";
+		var header = document.getElementById("location_header");
+		header.style.display = "inline";
+		var loader = document.getElementById("loader");
+		loader.style.display = "none";
+		
 	}
 
 getCoords = () => {

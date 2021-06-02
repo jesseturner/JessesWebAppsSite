@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-		<link rel="stylesheet" href="assets/css/apod.css" />
+		<link rel="stylesheet" href="assets/css/weather.css" />
 	</head>
 	<body class="is-preload">
 
@@ -36,7 +36,7 @@
 						<div class="simple_flex_container">
 										<div class="simple_flex_child">
 											<header>
-												<span class="date">Last Software Update: May 31st, 2021</span>
+												<span class="date">Last Software Update: June 1st, 2021</span>
 												<h2>Weather API</h2>
 											</header>
 										<p class="description">Weather predictions from the National Weather Service. All data is from the NWS API (more information: https://weather-gov.github.io/api/general-faqs). My application gets your current location from your browser (if it isn't working - this likely needs to be enabled), then passes your latitude and longitude to the NWS to determine your location's grid ID. After that call is completed, a second call gets the weather predictions for your area. </p>
@@ -44,19 +44,26 @@
 						</div>
 
 						<div>
-							<p>
-								Current Location: <span id="position"></span>&deg;
-							</p>
-						</div>
+							<div class="header_wrapper">
+								<h3 id="location_header" style="display: none">
+									Current Location Coordinates: <span id="position"></span>&deg;
+								</h3>
+								<div class="loader_wrapper">
+									<div class="loader" id="loader"></div>
+								</div>
+							</div>
 
-						<div>
-							<table id="forecast_table">
+
+							<div class="day_wrapper" id="calendar"> 
+							</div>
+
+							<!--<table id="forecast_table" style="display: none">
 							  <tr>
-							    <th>Name</th>
-							    <th>Short Forecast</th>
+							    <th></th>
+							    <th>Forecast</th>
 							    <th>Temperature</th>
 							  </tr>
-							</table>
+							</table>-->
 						</div>
 
 

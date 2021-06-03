@@ -1,11 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Bitcoin Price</title>
+		<title>API Apps</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<link rel="stylesheet" href="assets/css/weather.css" />
 	</head>
 	<body class="is-preload">
 
@@ -21,7 +22,7 @@
 					<nav id="nav">
 						<ul class="links">
 							<li><a href="index.html">Updates & Logs</a></li>
-							<li><a href="api_apps.html">API Apps</a></li>
+							<li class="active"><a href="api_apps.html">API Apps</a></li>
 							<li><a href="world_leaders.html">World Leaders</a></li>
 							<li><a href="sentiment_classifier.html">Sentiment Classifier</a></li>
 							<li><a href="postgres_database_query.html">Database Query</a></li>
@@ -35,22 +36,24 @@
 						<div class="simple_flex_container">
 										<div class="simple_flex_child">
 											<header>
-												<span class="date">Last Software Update: May 25th, 2021</span>
-												<h2>Current Bitcoin Price</h2>
+												<span class="date">Last Software Update: June 3rd, 2021</span>
+												<h2>API-Based Apps</h2>
 											</header>
+										<p class="description">These applications all connect to a publicly available API. I use the Node.js module "express" to help with the HTTP requests. The raw API response is logged in the console in JSON format. </p>
 										</div>
 						</div>
 
-						<div class="price_container">
-							<div class="price" id="price">
-								
-							</div>
+						<div>
+							<ul class="actions special">
+								<li><a href="weather.html" class="button">NWS Weather Forecasts</a></li>
+								<li><a href="apod.html" class="button">NASA's Astronomy Picture of the Day</a></li>
+								<li><a href="bitcoin_price.html" class="button">Current Bitcoin Price</a></li>
+							</ul>
 						</div>
 
 
 
 		<!-- Scripts -->
-			<script type="text/javascript" src="bitcoin_get.js"></script>
 
 
 			<script src="assets/js/jquery.min.js"></script>

@@ -59,7 +59,7 @@ getCoords = () => {
 		navigator.geolocation.getCurrentPosition(async position => {
 			const lat = position.coords.latitude;
 			const lon = position.coords.longitude;
-			document.getElementById('position').textContent = Math.round(lat) + "," + Math.round(lon);
+			document.getElementById('position').textContent = Math.round(lat) + ", " + Math.round(lon);
 			console.log("Results of getCoords: " + lat + "," + lon);
 			resolve(lat + "," + lon);
 		})

@@ -1,0 +1,12 @@
+.article_image_cont {
+	display: flex;
+	justify-content: center;
+}
+.article_image {
+	max-width: 50%;
+}
+@media screen and (max-width: 736px) {
+	.article_image{
+		max-width: 90%;
+	}
+}

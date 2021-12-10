@@ -98,6 +98,7 @@
 {"message":"disaster","result":"positive","_id":"iJxcN4avLoKm0YiG"}
 {"message":"terrible","result":"negative","value":0.060606060606060615,"_id":"iRERkemG8rhSLL2s"}
 {"message":"no","result":"positive","value":0.5757575757575758,"_id":"iu3lEgkp0RzJFPfW"}
+{"message":"good news","result":"positive","value":0.011773940345368921,"_id":"iv1yy73y3Av2uMKI"}
 {"message":"awesome","result":"positive","_id":"iwNBTHg4hnt8bXpC"}
 {"message":"","result":"positive","_id":"j5lAPRWvLRrhv7nx"}
 {"message":"great","result":"positive","value":0.5757575757575758,"_id":"jm3Lhd3gttzYkTJZ"}
@@ -144,4 +145,3 @@
 {"message":"awesome","result":"positive","_id":"ybzEjsmq7jbG5Iah"}
 {"message":"disaster","result":"positive","_id":"zBuaPCA8WDuSp7dn"}
 {"message":"hello","result":"positive","_id":"zPBVA5Lc7KZoUtXb"}
-{"message":"good news","result":"positive","value":0.011773940345368921,"_id":"iv1yy73y3Av2uMKI"}
